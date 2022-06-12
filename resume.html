@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Mile Resume</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+
+        }
+
+        body {
+            background: #585c68;
+            font-size: 14px;
+            line-height: 22px;
+            color: #555555;
+        }
+
+        .bold {
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .semi-bold {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .resume {
+            width: 800px;
+            height: auto;
+            display: flex;
+            margin: 50px auto;
+        }
+
+        .resume .resume_left {
+            width: 280px;
+            background: #e7df91;
+        }
+
+        .resume .resume_left .resume_profile {
+            width: 100%;
+            height: 280px;
+        }
+
+        .resume .resume_left .resume_profile img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .resume .resume_left .resume_content {
+            padding: 0 25px;
+        }
+
+        .resume .title {
+            margin-bottom: 20px;
+        }
+
+        .resume .resume_left .bold {
+            color: rgb(0, 0, 0);
+        }
+
+        .resume .resume_left .regular {
+            color: #000000;
+        }
+
+        .resume .resume_item {
+            padding: 25px 0;
+            border-bottom: 2px solid #000000;
+        }
+
+        .resume .resume_left .resume_item:last-child,
+        .resume .resume_right .resume_item:last-child {
+            border-bottom: 0px;
+        }
+
+        .resume .resume_left ul li {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .resume .resume_left ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .resume .resume_left ul li .icon {
+            width: 35px;
+            height: 35px;
+            background: #fff;
+            color: #000000;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .resume .icon i,
+        .resume .resume_right .resume_hobby ul li i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .resume .resume_left ul li .data {
+            color: #000000;
+        }
+
+        .resume .resume_left .resume_skills ul li {
+            display: flex;
+            margin-bottom: 10px;
+            color: #000000;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_name {
+            width: 25%;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_progress {
+            width: 50%;
+            margin: 0 5px;
+            height: 5px;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_per {
+            width: 15%;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_progress span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgb(0, 0, 0);
+        }
+
+        .resume .resume_left .resume_social .semi-bold {
+            color: rgb(0, 0, 0);
+            margin-bottom: 3px;
+        }
+
+        .resume .resume_right {
+            width: 520px;
+            background: #fff;
+            padding: 25px;
+        }
+
+        .resume .resume_right .bold {
+            color: #0bb5f4;
+        }
+
+        .resume .resume_right .resume_work ul,
+        .resume .resume_right .resume_education ul {
+            padding-left: 40px;
+            overflow: hidden;
+        }
+
+        .resume .resume_right ul li {
+            position: relative;
+        }
+
+        .resume .resume_right ul li .date {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .resume .resume_right ul li .info {
+            margin-bottom: 20px;
+        }
+
+        .resume .resume_right ul li:last-child .info {
+            margin-bottom: 0;
+        }
+
+        .resume .resume_right .resume_work ul li:before,
+        .resume .resume_right .resume_education ul li:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: -25px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border: 2px solid #0bb5f4;
+        }
+
+        .resume .resume_right .resume_work ul li:after,
+        .resume .resume_right .resume_education ul li:after {
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: -21px;
+            width: 2px;
+            height: 115px;
+            background: #0bb5f4;
+        }
+
+        .resume .resume_right .resume_hobby ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .resume .resume_right .resume_hobby ul li {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #0bb5f4;
+            border-radius: 50%;
+            position: relative;
+            color: #0bb5f4;
+        }
+
+        .resume .resume_right .resume_hobby ul li i {
+            font-size: 30px;
+        }
+
+        .resume .resume_right .resume_hobby ul li:before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            right: -52px;
+            width: 50px;
+            height: 2px;
+            background: #0bb5f4;
+        }
+
+        .resume .resume_right .resume_hobby ul li:last-child:before {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <div class="resume">
+        <div class="resume_left">
+            <div class="resume_profile">
+                <img src="https://scontent.fcgk6-2.fna.fbcdn.net/v/t1.6435-1/93365123_1452743658261440_7337099606783688704_n.jpg?stp=dst-jpg_p200x200&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeG60gNLzTbaBXizztcxGQR8xpphy1IdFGbGmmHLUh0UZjynm1AgWIUDu3WCzswYx3QzzqQ90A_JMccsN-T5FTzx&_nc_ohc=dkOK_hpa-LoAX943LCy&_nc_ht=scontent.fcgk6-2.fna&oh=00_AT8JEXdXMwfU6PeS2bP-TDSTDc3Dsn7Q0ai-KAGIalaZZQ&oe=62CD0C73"
+                    alt="profile_pic">
+            </div>
+            <div class="resume_content">
+                <div class="resume_item resume_info">
+                    <div class="title">
+                        <p class="bold">Michael Edi Lee</p>
+                        <p class="regular">Student</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="fas fa-map-signs"></i>
+                            </div>
+                            <div class="data">
+                                Pintu Besar Selatan No.xx <br /> Jakarta
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="data">
+                                +62 813-3333-2636
+                                <br>
+                                +1(415) 967-0953
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="data">
+                                michael.lee002@binus.
+                                <br>ac.id
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fab fa-weebly"></i>
+                            </div>
+                            <div class="data">
+                                <a href="https://github.com/sgmile">https://github.com/sgmile</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume_item resume_skills">
+                    <div class="title">
+                        <p class="bold">skill's</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="skill_name">
+                                HTML
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 80%;"></span>
+                            </div>
+                            <div class="skill_per">80%</div>
+                        </li>
+                        <li>
+                            <div class="skill_name">
+                                CSS
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 50%;"></span>
+                            </div>
+                            <div class="skill_per">50%</div>
+                        </li>
+                        <li>
+                            <div class="skill_name">
+                                Java
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 50%;"></span>
+                            </div>
+                            <div class="skill_per">50%</div>
+                        </li>
+                        <li>
+                            <div class="skill_name">
+                                SQL
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 50%;"></span>
+                            </div>
+                            <div class="skill_per">50%</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- For Language -->
+                <div class="resume_item resume_skills">
+                    <div class="title">
+                        <p class="bold">Languages</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="skill_name">
+                                English
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 100%;"></span>
+                            </div>
+                            <div class="skill_per">100%</div>
+                        </li>
+                        <li>
+                            <div class="skill_name">
+                                Indonesia
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 90%;"></span>
+                            </div>
+                            <div class="skill_per">90%</div>
+                        </li>
+                        <li>
+                            <div class="skill_name">
+                                Chinese
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 50%;"></span>
+                            </div>
+                            <div class="skill_per">50%</div>
+                        </li>
+                        <li>
+                            <div class="skill_name">
+                                Japanese
+                            </div>
+                            <div class="skill_progress">
+                                <span style="width: 40%;"></span>
+                            </div>
+                            <div class="skill_per">40%</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume_item resume_social">
+                    <div class="title">
+                        <p class="bold">Social</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="data">
+                                <p class="semi-bold">Github</p>
+                                <p>github.com/sgmile</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="data">
+                                <p class="semi-bold">Instagram</p>
+                                <p>@sg.mile</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="data">
+                                <p class="semi-bold">Linkedin</p>
+                                <p>Michael Edi Lee</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="resume_right">
+            <div class="resume_item resume_about">
+                <div class="title">
+                    <p class="bold">About Me</p>
+                </div>
+                <p>Motivated Information System student from the Bina Nusantara University with 7 months of experience
+                    in software development such as Android, and Windows application, received straight A’s on all
+                    software development project. Ensured a 100% on-time project completion in previous multiple
+                    projects. </p>
+            </div>
+            <div class="resume_item resume_work">
+                <div class="title">
+                    <p class="bold">Experience</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="date">Jun 2022 - Jun 2022</div>
+                        <div class="info">
+                            <p class="semi-bold">Binus Ambassador</p>
+                            <p>
+                                Singapore Polytechnic, Singapore
+                                <br>
+                                Bina Nusantara University, Indonesia
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date">May 2022 - May 2022</div>
+                        <div class="info">
+                            <p class="semi-bold">Binus Ambassador</p>
+                            <p>
+                                Tecnológico de Monterrey, Mexico
+                                <br>
+                                Bina Nusantara University, Indonesia
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date">Mar 2022 - Mar 2022</div>
+                        <div class="info">
+                            <p class="semi-bold">Video Producer and Teacher</p>
+                            <p>Teach For Indonesia, KMB Dhammavaddhana</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date">Feb 2022 - April 2022</div>
+                        <div class="info">
+                            <p class="semi-bold">Marketing</p>
+                            <p>Bina Nusantara Mandarin Club</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date">Dec 2021 - Feb 2022</div>
+                        <div class="info">
+                            <p class="semi-bold">Software Developer</p>
+                            <p>Bina Nusantara Computer Club</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="resume_item resume_education">
+                <div class="title">
+                    <p class="bold">Education</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="date">Sep 2021 - Jul 2025</div>
+                        <div class="info">
+                            <p class="semi-bold">Bachelor of Information Systems</p>
+                            <i>Bina Nusantara University, Jakarta</i>
+                            <p>Cumulative GPA 3.74</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date">2018 - 2021</div>
+                        <div class="info">
+                            <p class="semi-bold">Commerce</p>
+                            <i>Gandhi International High School, Jakarta</i>
+                            <p>Straight A student</p>
+                            <p>Top 10 Student in Commerce</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="resume_item resume_education">
+                <div class="title">
+                    <p class="bold">Certification</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="date">Dec 2021</div>
+                        <div class="info">
+                            <p class="semi-bold">TOEFL iTP</p>
+                            <p>
+                                ETS - BINUS
+                                <br>
+                                577
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
